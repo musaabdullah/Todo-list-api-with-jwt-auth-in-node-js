@@ -20,7 +20,7 @@ router.get("/logout", logout_get);
 
 router.get("/users", getUsers);
 
-router.get("/posts", requireAuth, (req, res) => {
+router.get("/posts", (req, res) => {
   res.json(posts);
 });
 
