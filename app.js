@@ -13,7 +13,7 @@ const app = express();
 app.use(morgan());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://todo-jwt.vercel.app",
     credentials: true,
   })
 );
@@ -25,12 +25,15 @@ const PORT = process.env.PORT || 4000;
 
 /// connecton with mongoose
 mongoose
-  .connect(process.env.CONNECT_URL, {
-    useCreateIndex: true,
-    useFindAndModify: true,
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
+  .connect(
+    "mongodb+srv://musa9295:pein9295@cluster0.5lxjc.mongodb.net/webtoken?retryWrites=true&w=majority",
+    {
+      useCreateIndex: true,
+      useFindAndModify: true,
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    }
+  )
   .then((res) => console.log("connected"))
   .catch((error) => console.log(error.message));
 
